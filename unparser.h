@@ -7,12 +7,19 @@
 #ifndef SPLIT_STR_LEN
 #define SPLIT_STR_LEN 128
 #endif
-
+//an array of strings
 typedef struct{
 	char strs[NUM_SPLIT_STRINGS][SPLIT_STR_LEN];
 	int num_strs;
 }split_str_t;
+//takes in a string and returns an array of strings split wherever a space is found. so "hello world" becomes {"hello", "world"}, 
+//this doesn't include any spaces in the final result
 split_str_t split_string(char * string);
+//takes in a string and a space seperated list of tokens and returns an array of strings such that each token
+// is confined entirely to its own array element, for example parse_string("a+b-c->d", "+ - ->") 
+//would return {"a","+", "b", "-","c","->", "d"}. additionally it functions as split string so it anything seperated by spaces will 
+//become seperate array elementss
+//
 split_str_t parse_string(char * string, char * tokens);
 long get_time();
 #ifdef UNPARSER_IMPLEMENTATION
