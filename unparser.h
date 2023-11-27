@@ -83,27 +83,28 @@ split_str_t parse_string(char * string, char * tokens){
     long _t = get_time();
     split_str_t tks  = split_string(tokens);
     char * old = string;
-    bool last_white_space = false;
-    while(*string){
-        if(*string != ' ' && *string != '\n'){
-            last_white_space = true;
-        }
+    bool has_pushed = false;
+    while(*string>-1){
+        int s = (char)(string[0]);
         int m = matches_str(string, tks);
         if(m){
             push_back(m);
         }
-        else if(*string == ' ' || *string == '\n'){
-            if(!last_white_space){
-                push_back(0);
-                string++;
-                old = string;
-                last_white_space = true;
-            }
+        else if(*string == '\n'){
+            push_back(1);
+        }
+        else if(*string == ' ' || *string  == -1){
+            push_back(0);
+            string++;
+            old = string;
         }
         string++;
     }
     memcpy(out.strs[out.num_strs], old, string-old);
     out.num_strs++;
+    if(out.strs[out.num_strs-1][0] == -1){
+        out.num_strs--;
+    }
     return out;
 }
 #endif
