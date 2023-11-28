@@ -45,6 +45,7 @@ _t = get_time();
 
 split_str_t split_string(char * string){
 	split_str_t out;
+    memset(&out,0,sizeof(split_str_t));
 	out.num_strs = 0;
 	char * old = string;
 	while(*string){
@@ -74,8 +75,10 @@ int matches_str(char * s, split_str_t tokens){
     }    return max;
 }
 #define push_back(sz) \
-    memcpy(out.strs[out.num_strs], old, string-old);\
-    out.num_strs++;\
+    if(string-old){\
+        memcpy(out.strs[out.num_strs], old, string-old);\
+        out.num_strs++;\
+    }\
     if(sz){\
 	    memcpy(out.strs[out.num_strs], string, sz);\
 	    out.strs[out.num_strs][sz+1] = '\0';\
@@ -86,6 +89,7 @@ int matches_str(char * s, split_str_t tokens){
 
 split_str_t parse_string(char * string, char * tokens){
     split_str_t out;
+    memset(&out,0,sizeof(split_str_t));
     out.num_strs = 0;
     long _t = get_time();
     split_str_t tks  = split_string(tokens);

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
-//#define UNPARSER_IMPLEMENTATION
-#include "unparser.h"
+#define UNPARSER_IMPLEMENTATION
+#include <unparser.h>
 #include <unistd.h>
 #include <time.h>
 long test(int argc, const char ** argv){

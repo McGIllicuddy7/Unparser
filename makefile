@@ -1,2 +1,2 @@
-make: main.c unparser.c
-	gcc main.c unparser.c -l m -g3 
+make: main.c 
+	gcc main.c -l m -g3 
