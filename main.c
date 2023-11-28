@@ -46,7 +46,7 @@ int main(int argc, const char ** argv){
 		buff[strlen(buff)-1] = '\0';
 	}
 	long t = get_time();
-	split_str_t f = parse_string(buff, "<secret>");
+	split_str_t f = parse_string(buff, "-> r");
 	long dt = get_time()-t;
 	dt = dt/1000;
 	for(int i = 0; i<f.num_strs; i++){

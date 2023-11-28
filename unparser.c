@@ -71,6 +71,7 @@ split_str_t parse_string(char * string, char * tokens){
         int m = matches_str(string, tks);
         if(m){
             push_back(m);
+            string --;
         }
         else if(*string == '\n'){
             push_back(1);
