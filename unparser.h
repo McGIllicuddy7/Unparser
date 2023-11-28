@@ -21,7 +21,6 @@ split_str_t split_string(char * string);
 //become seperate array elementss
 //
 split_str_t parse_string(char * string, char * tokens);
-long get_time();
 #ifdef UNPARSER_IMPLEMENTATION
 #include "unparser.h"
 #include <string.h>
